@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "no-translate",
+    "version": "1.0",
+  
+    "description": "Stops Reddit from translating websites. Redirects you to Reddit, without the /?tl=... parameter.",
+
+    "icons": {
+      "48": "icons/icon.png"
+    },
+  
+    "permissions": [
+      "webRequest",
+      "webRequestBlocking",
+      "*://*.reddit.com/*"
+    ],
+
+    "background": {
+      "scripts": ["no-translate.js"]
+    }
+  }
