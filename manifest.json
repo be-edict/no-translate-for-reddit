@@ -10,6 +10,7 @@
     },
   
     "permissions": [
+      "storage",
       "webRequest",
       "webRequestBlocking",
       "*://*.reddit.com/*"
@@ -17,5 +18,9 @@
 
     "background": {
       "scripts": ["no-translate.js"]
+    },
+
+    "browser_action": {
+      "default_popup": "popup/popup.html"
     }
   }
