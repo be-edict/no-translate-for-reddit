@@ -10,7 +10,7 @@ function toggleStatus(enabled) {
 //Initialize
 browser.storage.local.get("extensionEnabled").then((result) => {
 	let isEnabled;
-	if (typeof result.extensionEnabled == "undefined") {
+	if (typeof result.extensionEnabled === "undefined") {
 		isEnabled = true;
 	} else {
 		isEnabled = result.extensionEnabled || false;

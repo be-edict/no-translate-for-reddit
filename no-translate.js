@@ -6,6 +6,15 @@ function listener(details) {
 	}
 }
 
+//Nach der Installation/Update Plugin auf an schalten.
+browser.runtime.onInstalled.addListener(() => {
+	browser.storage.local.get("extensionEnabled").then((result) => {
+		if (typeof result.extensionEnabled === "undefined") {
+			browser.storage.local.set({extensionEnabled: true});
+		}
+	});
+});
+
 function registerListener() {
 	browser.webRequest.onBeforeRequest.addListener(
 		listener,
@@ -19,7 +28,9 @@ function registerListener() {
 
 function unregisterListener() {
 	try {
-		browser.webRequest.onBeforeRequest.removeListener(listener);
+		if (browser.webRequest.onBeforeRequest.hasListener(listener)) {
+			browser.webRequest.onBeforeRequest.removeListener(listener);
+		}
 	} catch(error) {
 		console.error("Failed to unregister listener: ", error);
 	}
