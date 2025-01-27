@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "no-translate",
-    "version": "1.0",
+    "version": "1.1.1",
   
     "description": "Stops Reddit from translating websites. Redirects you to Reddit, without the /?tl=... parameter.",
 
